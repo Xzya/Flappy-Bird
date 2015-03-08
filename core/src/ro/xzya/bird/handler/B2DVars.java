@@ -11,5 +11,7 @@ public class B2DVars {
     //category bits
     public static final short BIT_PLAYER = 2;
     public static final short BIT_PIPE = 4;
+    public static final short BIT_POINT = 8;
+    public static final short BIT_BORDER = 16;
 
 }

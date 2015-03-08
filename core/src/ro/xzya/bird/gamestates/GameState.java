@@ -11,7 +11,7 @@ import ro.xzya.bird.handler.GameStateManager;
  */
 public abstract class GameState {
 
-    public boolean debug = true;
+    public boolean debug = false;
 
     protected GameStateManager gsm;
     protected Game game;

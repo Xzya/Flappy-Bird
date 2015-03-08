@@ -59,4 +59,21 @@ public class Animation {
     public int getTimesPlayed() {
         return timesPlayed;
     }
+
+
+    public int getCurrentFrame() {
+        return currentFrame;
+    }
+
+    public TextureRegion[] getFrames() {
+        return frames;
+    }
+
+    public void setCurrentFrame(int currentFrame) {
+        this.currentFrame = currentFrame;
+    }
+
+    public void incrementCurrentFrame() {
+        step();
+    }
 }

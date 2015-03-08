@@ -60,4 +60,7 @@ public class B2DSprite {
         return height;
     }
 
+    public Animation getAnimation() {
+        return animation;
+    }
 }

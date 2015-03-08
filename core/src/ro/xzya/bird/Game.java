@@ -7,12 +7,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ro.xzya.bird.handler.Content;
 import ro.xzya.bird.handler.GameStateManager;
+import ro.xzya.bird.handler.Jukebox;
 import ro.xzya.bird.handler.MyInput;
 import ro.xzya.bird.handler.MyInputProcessor;
 
 public class Game extends ApplicationAdapter {
 
-    public static boolean isMobile = false;
+    public static boolean sound = true;
 
     public static final String TITLE = "Flappy Bird";
 //    public static final int V_WIDTH = 180;
@@ -20,6 +21,7 @@ public class Game extends ApplicationAdapter {
     public static final int V_WIDTH = 144;
     public static final int V_HEIGHT = 256;
     public static final int SCALE = 2;
+    public static final float FPS = 1/60f;
 
 	private SpriteBatch sb;
     private OrthographicCamera cam;
@@ -28,12 +30,6 @@ public class Game extends ApplicationAdapter {
     private GameStateManager gsm;
 
     public static Content res;
-
-    public Game(String platform){
-        if (platform.equals("mobile")) {
-            isMobile = true;
-        }
-    }
 
 	@Override
 	public void create () {
@@ -61,17 +57,27 @@ public class Game extends ApplicationAdapter {
 	public void render () {
 //		Gdx.gl.glClearColor(0, 0, 0, 1);
 
-        gsm.update(Gdx.graphics.getDeltaTime());
-        gsm.render();
+            gsm.update(Gdx.graphics.getDeltaTime());
+            gsm.render();
 
-        MyInput.update();
-
+            MyInput.update();
 	}
 
     private void loadContents() {
         res.loadTexture("images/background.png", "background");
         res.loadTexture("images/player.png", "player");
         res.loadTexture("images/ground.png", "ground");
+        res.loadTexture("images/pipe.png", "pipe");
+        res.loadTexture("images/numbers.png", "numbers");
+        res.loadTexture("images/game_over.png", "game_over");
+        res.loadTexture("images/title.png", "title");
+        res.loadTexture("images/get_ready.png", "get_ready");
+        res.loadTexture("images/start.png", "start");
+        res.loadTexture("images/medals.png", "medals");
+
+        Jukebox.load("sounds/hit.ogg", "hit");
+        Jukebox.load("sounds/point.ogg", "point");
+        Jukebox.load("sounds/wing.ogg", "wing");
     }
 
     public SpriteBatch getSb() {
